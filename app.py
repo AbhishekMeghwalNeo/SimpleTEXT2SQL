@@ -1,10 +1,10 @@
-import streamlit as st
 # from google import genai
 
 from openai import AzureOpenAI
 import os
 from dotenv import load_dotenv
 import sqlite3
+import streamlit as st
 
 load_dotenv()
 
@@ -58,7 +58,7 @@ prompt=   """
     also the sql code should not have ``` in beginning or end and sql word in output
 
     """
-# Text 2 SQL
+# # Text 2 SQL
 
 # question = "Find out unique class in the table"
 
@@ -71,8 +71,7 @@ prompt=   """
 # rows = read_sql_query(sql= output_text, db= "student.db")
 # print(rows)
 
-
-# Streamlit APP code
+# Streamlit APP code 
 
 st.set_page_config(page_title= "I can Retrieve any SQL query")
 st.header("AZURE app to retrieve SQL Data")
@@ -90,7 +89,6 @@ if submit:
     for row in data:
         print(row)
         st.header(row)
-
 
 
 
