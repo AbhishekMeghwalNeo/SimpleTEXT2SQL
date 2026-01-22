@@ -1,5 +1,5 @@
-# import streamlit as st
-from google import genai
+import streamlit as st
+# from google import genai
 
 from openai import AzureOpenAI
 import os
@@ -60,15 +60,37 @@ prompt=   """
     """
 # Text 2 SQL
 
-question = "Find out unique class in the table"
+# question = "Find out unique class in the table"
 
-print(question)
+# print(question)
 
-output_text = get_llm_response(question, prompt)
+# output_text = get_llm_response(question, prompt)
 
-print(output_text)
+# print(output_text)
 
-rows = read_sql_query(sql= output_text, db= "student.db")
-print(rows)
+# rows = read_sql_query(sql= output_text, db= "student.db")
+# print(rows)
+
+
+# Streamlit APP code
+
+st.set_page_config(page_title= "I can Retrieve any SQL query")
+st.header("AZURE app to retrieve SQL Data")
+
+question = st.text_area("Input : ", key= "input")
+
+submit= st.button("Ask the question")
+
+# If submit is clicked 
+if submit:
+    response = get_llm_response(question, prompt)
+    print(response)
+    data= read_sql_query(sql= response, db="student.db")
+    st.header("The Response is ")
+    for row in data:
+        print(row)
+        st.header(row)
+
+
 
 
