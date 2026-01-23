@@ -1,5 +1,5 @@
 # import streamlit as st
-from google import genai
+# from google import genai
 
 from openai import AzureOpenAI
 import os
@@ -60,7 +60,7 @@ prompt=   """
     """
 # Text 2 SQL
 
-question = "Find out unique class in the table"
+question = "Find out unique classes in the table"
 
 print(question)
 
