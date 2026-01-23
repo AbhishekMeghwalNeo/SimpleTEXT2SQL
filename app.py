@@ -14,7 +14,7 @@ client = AzureOpenAI(
     azure_endpoint= "https://amiparmar-test-resource.cognitiveservices.azure.com/"
 )
 
-# Function to load Google gemeni model and provide sql query as response
+# Function to load Azure model and provide sql query as response
 def get_llm_response(question, prompt):
 
     response= client.chat.completions.create(
@@ -41,7 +41,7 @@ def read_sql_query(sql, db):
     cur = conn.cursor()
     cur.execute(sql)
     rows= cur.fetchall()
-    conn.commit()
+    # conn.commit()
     conn.close()
 
     return rows
@@ -57,6 +57,7 @@ prompt=   """
     where CLASS="Data Science"; 
     also the sql code should not have ``` in beginning or end and sql word in output
 
+    OUTPUT should be strictly a SQL query.
     """
 # Text 2 SQL
 
