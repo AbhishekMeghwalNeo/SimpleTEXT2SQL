@@ -41,7 +41,6 @@ def read_sql_query(sql, db):
     cur = conn.cursor()
     cur.execute(sql)
     rows= cur.fetchall()
-    # conn.commit()
     conn.close()
 
     return rows
